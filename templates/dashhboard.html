@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="d-flex">
+
+    {% include 'sidebar.html' %}
+
+    <div class="container-fluid p-4">
+
+        <h2>Dashboard</h2>
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="card shadow">
+
+                    <div class="card-body">
+
+                        <h5>Systems</h5>
+
+                        <h2>{{ systems|length }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow">
+
+                    <div class="card-body">
+
+                        <h5>Messages</h5>
+
+                        <h2>0</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <table class="table table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>IP</th>
+
+                    <th>Protocol</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for system in systems %}
+
+                <tr>
+
+                    <td>{{ system.system_name }}</td>
+
+                    <td>{{ system.ip_address }}</td>
+
+                    <td>{{ system.protocol }}</td>
+
+                    <td>{{ system.status }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
